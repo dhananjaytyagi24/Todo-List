@@ -1,5 +1,4 @@
+<h4>Your Todos</h4>
 <div *ngFor="let todo of todos">
-    <div>
-        {{todo.title}}
-    </div>
+    <app-todo-item [todo]="todo" (deleteTodo)="deleteTodo($event)"></app-todo-item>
 </div>
