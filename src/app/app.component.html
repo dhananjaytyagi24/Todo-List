@@ -14,7 +14,8 @@
   </div>
 </nav>
 
-<div class="container-fluid">
-  <h3 class="text-center">Todo List</h3>
-  <app-todo></app-todo>
+<div class="container text-center">
+  <h3 class="mb-4">Todo List</h3>
+  <app-add-todo (addTodo)="addTodo($event)"></app-add-todo>
+  <app-todo [newTodo]="newTodoToBeSentToChild"></app-todo>
 </div>

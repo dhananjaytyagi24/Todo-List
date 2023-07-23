@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 import { Todo } from 'src/app/TodoModel';
 
 @Component({
@@ -7,6 +7,9 @@ import { Todo } from 'src/app/TodoModel';
   styleUrls: ['./todo.component.css']
 })
 export class TodoComponent {
+
+  @Input() newTodo: Todo;
+
   todos: Todo[];
 
   constructor(){
@@ -32,7 +35,14 @@ export class TodoComponent {
     ];
   }
 
-  deleteTodo(todo){
+  ngOnChanges(changes: SimpleChanges){
+    if (this.newTodo != null) {
+      this.todos.push(this.newTodo);
+      console.log(changes)
+    }
+  }  
+
+  deleteTodo(todo) {
     let index = this.todos.indexOf(todo);
     this.todos.splice(index, 1);
   }

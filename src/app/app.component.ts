@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Todo } from './TodoModel';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  newTodoToBeSentToChild: Todo;
+
   title = 'Todo-List';
+
+  addTodo(todo: Todo){
+    this.newTodoToBeSentToChild = todo;
+  }
 }
